@@ -33,6 +33,7 @@
   ],
   "dependencies": {
     "bluebird": "^3.4.0",
+    "fbp-manifest": "^0.1.4",
     "noflo-lint": "^0.2.0"
   }
 }
