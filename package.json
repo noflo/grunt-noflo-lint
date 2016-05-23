@@ -1,7 +1,7 @@
 {
   "name": "grunt-noflo-lint",
   "description": "Grunt plugin for linting NoFlo projects",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/noflo/grunt-noflo-lint",
   "author": {
     "name": "Henri Bergius",
