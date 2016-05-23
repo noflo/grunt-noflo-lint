@@ -2,6 +2,8 @@
 
 > Grunt plugin for linting NoFlo projects
 
+See [noflo-lint](https://github.com/noflo/noflo-lint) for more information.
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
