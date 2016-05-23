@@ -36,6 +36,11 @@ grunt.initConfig({
   },
 });
 ```
+
+### Options
+
+See [noflo-lint](https://github.com/noflo/noflo-lint) for available options.
+
 ### Usage Examples
 
 #### Default Options
