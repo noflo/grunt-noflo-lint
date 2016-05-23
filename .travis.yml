@@ -1,3 +1,11 @@
 language: node_js
 node_js:
 - 4.2
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: qUSRZqgooktGUdM//lFxIlqdpqYTy5oGPhz/D7M75H7jxhu9mChvDnuzCmvn0daMlq4bxLGABodnOmUZGUIoMiPfBeZeyvLN4o6JZiycRaPyhhl+IW5t5zH1v1YK4hQymIjar1ehU6ZkM6dAFYOtFH/o2HjQJQkcQVgj+9ZbOxQeFchnW1RBrdf+fwvl12mLPyG42kUjYe1O4DuBwoVc23R/I+zD9m6aEct2l8SIppwATbAHiYpXv4/dKwruALvHgNhW3DKK00AWctL/dIAca3uW7Fut+jjZY62MJpbszH1TM7uWaO64IwSEZRfH20PyVayg/FxeQWJFORZF3ldSZ666RKykPBmN3TJgaOtRJAUuPS8S0dJqKxKiUEBxNCJYz+X80GVejix0+B/AvjWXyBdC5Pcu6DDaLEoXl852L5saW7cXrOaiMq/ef4Tx9yHo5Y0IDF/pfsqFLkG19FlZGq4sWIrrepVO0KrxfoUmhg6cVckJYKkfzfuSnphn+P05ymS5QCdUQtpZWtAUv38ZackVqHhXKpdlmuna42fRjmAkSIfPp7FgQdSEr6ARpjrzf3va+Tv/TQXEOBxDSLOxb1VTZGPRKtRbOMBxhtNx2qWNISJ6TxfRxwqVuMq83o+fCEGFNrz6OXp5WYsd9Iq8YZoit5q2awPiRZL888ReiP0=
+  on:
+    tags: true
+    repo: noflo/grunt-noflo-lint
