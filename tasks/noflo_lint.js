@@ -61,6 +61,8 @@ module.exports = function(grunt) {
         results.graph = graph;
         return Promise.resolve(results);
       });
+    }, {
+      concurrency: 1
     })
     .nodeify(function (err, results) {
       if (err) {
