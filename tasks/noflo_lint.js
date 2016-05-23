@@ -11,6 +11,7 @@
 var path = require('path');
 var Promise = require('bluebird');
 var nofloLint = Promise.promisifyAll(require('noflo-lint').graph);
+var manifestLoader = Promise.promisifyAll(require('fbp-manifest').load);
 
 module.exports = function(grunt) {
 
@@ -52,17 +53,24 @@ module.exports = function(grunt) {
       graphs = graphs.concat(src);
     });
 
-    Promise.map(graphs, function (graph) {
-      return nofloLint.lintAsync(options.baseDir, graph, {})
-      .then(function (deps) {
-        return nofloLint.analyzeAsync(deps, options);
-      })
-      .then(function (results) {
-        results.graph = graph;
-        return Promise.resolve(results);
+    manifestLoader.loadAsync(options.baseDir, {
+      runtimes: ['noflo'],
+      recursive: true,
+      baseDir: options.baseDir
+    })
+    .then(function (manifest) {
+      return Promise.map(graphs, function (graph) {
+        return nofloLint.lintAsync(options.baseDir, graph, {}, manifest.modules)
+        .then(function (deps) {
+          return nofloLint.analyzeAsync(deps, options);
+        })
+        .then(function (results) {
+          results.graph = graph;
+          return Promise.resolve(results);
+        });
+      }, {
+        concurrency: 1
       });
-    }, {
-      concurrency: 1
     })
     .nodeify(function (err, results) {
       if (err) {
